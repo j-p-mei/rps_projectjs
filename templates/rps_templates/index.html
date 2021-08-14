@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Count</title>
+        <script>
+            let rockbool = false;
+            let paperbool = false;
+            let scissorsbool = false;
+            var compchoice = " ";
+            let playerwins = 0;
+            let computerwins = 0;
+            let comprockbool = false;
+            let comppaperbool = false;
+            let compscissorsbool = false;
+            function rock() {
+                const header = document.querySelector('h1');
+                if (rockbool === false)
+                {
+                    header.innerHTML = "You Chose Rock!"
+                    rockbool = true;
+                    computer();
+                    if (compchoice === "Paper")
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Paper, You Lose!";
+                        computerwins++;
+                        document.querySelector('h3').innerHTML = "Score is " + playerwins + "-" + computerwins;
+                    }
+                    else if (compchoice === "Scissors")
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Scissors, You Win!";
+                        playerwins++;
+                        document.querySelector('h3').innerHTML = "Score is " + playerwins + "-" + computerwins;
+                    }
+                    else
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Rock, You Tie!";
+                    }
+                    if (rockbool && paperbool && scissorsbool)
+                    {
+                        if (playerwins > computerwins)
+                        {
+                            header.innerHTML = "You Win " + playerwins + "-" + computerwins + "!";
+                        }
+                        else if (computerwins > playerwins)
+                        {
+                            header.innerHTML = "Better Luck Next Time!"
+                        }
+                        else
+                        {
+                            header.innerHTML = "It is a Tie!"
+                        }
+                    }
+                }
+                else
+                {
+                    header.innerHTML = "You Already Chose Rock!"
+                }    
+            }
+            function paper() {
+                const header = document.querySelector('h1');
+                if (paperbool === false)
+                {
+                    header.innerHTML = "You Chose Paper!"
+                    paperbool = true;
+                    computer();
+                    if (compchoice === "Scissors")
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Scissors, You Lose!";
+                        computerwins++;
+                        document.querySelector('h3').innerHTML = "Score is " + playerwins + "-" + computerwins;
+                    }
+                    else if (compchoice === "Rock")
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Rock, You Win!";
+                        playerwins++;
+                        document.querySelector('h3').innerHTML = "Score is " + playerwins + "-" + computerwins;
+                    }
+                    else
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Paper, You Tie!";
+                    }
+                    if (rockbool && paperbool && scissorsbool)
+                    {
+                        if (playerwins > computerwins)
+                        {
+                            header.innerHTML = "You Win " + playerwins + "-" + computerwins + "!";
+                        }
+                        else if (computerwins > playerwins)
+                        {
+                            header.innerHTML = "Better Luck Next Time!"
+                        }
+                        else
+                        {
+                            header.innerHTML = "It is a Tie!"
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    header.innerHTML = "You Already Chose Paper!"
+                }
+            }
+            function scissors() {
+                const header = document.querySelector('h1');
+                if (scissorsbool === false)
+                {
+                    header.innerHTML = "You Chose Scissors!"
+                    scissorsbool = true;
+                    computer();
+                    if (compchoice === "Rock")
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Rock, You Lose!";
+                        computerwins++;
+                        document.querySelector('h3').innerHTML = "Score is " + playerwins + "-" + computerwins;
+                    }
+                    else if (compchoice === "Paper")
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Paper, You Win!";
+                        playerwins++;
+                        document.querySelector('h3').innerHTML = "Score is " + playerwins + "-" + computerwins;
+                    }
+                    else
+                    {
+                        document.querySelector('h2').innerHTML = "The Computer Chose Scissors, You Tie!";
+                    }
+                    if (rockbool && paperbool && scissorsbool)
+                    {
+                        if (playerwins > computerwins)
+                        {
+                            header.innerHTML = "You Win " + playerwins + "-" + computerwins + "!";
+                        }
+                        else if (computerwins > playerwins)
+                        {
+                            header.innerHTML = "Better Luck Next Time!"
+                        }
+                        else
+                        {
+                            header.innerHTML = "It is a Tie!"
+                        }
+                    }
+                }
+                else
+                {
+                    header.innerHTML = "You Already Chose Scissors!"
+                }
+            }
+            function computer() {
+                if (comprockbool === false)
+                {
+                    if (comppaperbool === false)
+                    {
+                        if (compscissorsbool === false)
+                        {
+                            var x = Math.random() * 3;
+                            if (x > 2)
+                            {
+                                compchoice = "Scissors";
+                                compscissorsbool = true;
+                            }
+                            else if (x > 1)
+                            {
+                                compchoice = "Paper";
+                                comppaperbool = true;
+                            }
+                            else
+                            {
+                                compchoice = "Rock";
+                                comprockbool = true;
+                            }
+                        }
+                        else
+                        {
+                            var x = Math.random() * 2;
+                            if (x > 1)
+                            {
+                                compchoice = "Paper";
+                                comppaperbool = true;
+                            }
+                            else
+                            {
+                                compchoice = "Rock";
+                                comprockbool = true;
+                            }                            
+                        }
+                    }
+                    else if (compscissorsbool === false)
+                    {
+                        var x = Math.random() * 2;
+                        if (x > 1)
+                        {
+                            compchoice = "Scissors";
+                            compscissorsbool = true;
+                        }
+                        else
+                        {
+                            compchoice = "Rock";
+                            comprockbool = true;
+                        } 
+                    }
+                    else
+                    {
+                        compchoice = "Rock";
+                        comprockbool = true;
+                    }
+                }
+                else if (comppaperbool === false)
+                {
+                    if (compscissorsbool === false)
+                    {
+                        var x = Math.random() * 2;
+                        if (x > 1)
+                        {
+                            compchoice = "Scissors";
+                            compscissorsbool = true;
+                        }
+                        else
+                        {
+                            compchoice = "Paper";
+                            comppaperbool = true;
+                        }
+                    }
+                    else
+                    {
+                        compchoice = "Paper";
+                        comppaperbool = true;
+                    }
+                }
+                else if (compscissorsbool === false)
+                {
+                    compchoice = "Scissors";
+                    compscissorsbool = true;
+                }
+            }
+            function reset()
+            {
+                comprockbool = false;
+                comppaperbool = false;
+                compscissorsbool = false;
+                rockbool = false;
+                paperbool = false;
+                scissorsbool = false;
+                compchoice = " ";
+                playerwins = 0;
+                computerwins = 0;
+                document.querySelector('h1').innerHTML = "Let's Play RPS!";
+                document.querySelector('h2').innerHTML = "Computer's Choice";
+                document.querySelector('h3').innerHTML = "Score is 0-0";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Let's Play RPS!</h1>
+        <h2>Computer's Choice</h2>
+        <h3>Score is 0-0</h3>
+        <button onclick="rock()">Rock</button>
+        <button onclick="paper()">Paper</button>
+        <button onclick="scissors()">Scissors</button>
+        <button onclick="reset()">Reset</button>
+    </body>
+</html>
